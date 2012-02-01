@@ -18,17 +18,11 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
+	
+	 <!-- enable the configuration of transactional behavior based on annotations -->
+  	<tx:annotation-driven transaction-manager="transactionManager"/>
 
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<tx:method name="increasePrice*" propagation="REQUIRED" />
-			<tx:method name="someOtherBusinessMethod" propagation="REQUIRES_NEW" />
-			<tx:method name="*" propagation="SUPPORTS" read-only="true" />
-		</tx:attributes>
-	</tx:advice>
-
-	<!-- Entity Manager Factory based on Local Container. See other factories 
-		for app servers (JNDI, etc) -->
+	<!-- Entity Manager Factory based on Local Container. See other factories for app servers (JNDI, etc) -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -43,8 +37,6 @@
 	</bean>
 
 	<!-- bean post-processor for JPA annotations -->
-	<bean
-		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 	<bean class="es.gerardribas.persistence.dao.impl.CustomerDaoImpl" />
 </beans>

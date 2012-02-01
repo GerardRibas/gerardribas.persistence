@@ -25,7 +25,7 @@ import es.gerardribas.persistence.domain.Customer;
 public class CustomerDaoTestCase {
 	
 	@Autowired
-	CustomerDao customerDao;
+	private CustomerDao customerDao;
 
 	@Test
 	public void testFindById() {
@@ -44,6 +44,18 @@ public class CustomerDaoTestCase {
 		List<Customer> customers = customerDao.findAll(Customer.class,0,10);
 		Assert.assertNotNull(customers);
 		Assert.assertEquals(10, customers.size());
+	}
+	
+	@Test
+	public void testPersist() {
+		Customer customer = new Customer();
+		customer.setId(1111L);
+		customer.setName("Gerard");
+		customer.setSurname("Ribas");
+		customerDao.persist(customer);
+		Customer customerFromDB = customerDao.findById(Customer.class, 1111L);
+		Assert.assertNotNull(customerFromDB);
+		Assert.assertEquals(customer, customerFromDB);
 	}
 
 }
