@@ -17,6 +17,8 @@ public interface AbstractDao<T, E> extends Serializable {
 	public T update(T entity);
 
 	public void persist(T entity);
+	
+	public void merge(T entity);
 
 	public void remove(T entity);
 

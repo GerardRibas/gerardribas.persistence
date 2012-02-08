@@ -39,4 +39,6 @@
 	<!-- bean post-processor for JPA annotations -->
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 	<bean class="es.gerardribas.persistence.dao.impl.CustomerDaoImpl" />
+	<bean class="es.gerardribas.persistence.dao.impl.ProductDaoImpl"/>
+	<bean class="es.gerardribas.persistence.dao.impl.BillDaoImpl"/>
 </beans>
