@@ -4,9 +4,11 @@
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
 	<!-- Create a SQL Embedded Database only for test -->
@@ -38,7 +40,7 @@
 
 	<!-- bean post-processor for JPA annotations -->
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-	<bean class="es.gerardribas.persistence.dao.impl.CustomerDaoImpl" />
-	<bean class="es.gerardribas.persistence.dao.impl.ProductDaoImpl"/>
-	<bean class="es.gerardribas.persistence.dao.impl.BillDaoImpl"/>
+	
+	<context:component-scan base-package="es.gerardribas.persistence.dao"/>
+	
 </beans>

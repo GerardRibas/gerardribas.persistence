@@ -33,10 +33,16 @@ public class ProductDaoTestCase {
 	}
 	
 	@Test
+	public void testContains() {
+		Product product = productDao.findById(Product.class, 2L);
+		Assert.assertNotNull(product);
+	}
+	
+	@Test
 	public void testListAllProducts() {
 		List<Product> products = productDao.findAll(Product.class);
 		Assert.assertNotNull(products);
-		Assert.assertEquals(100, products.size());
+		Assert.assertEquals(101, products.size());
 	}
 	
 	@Test
@@ -55,6 +61,7 @@ public class ProductDaoTestCase {
 		productDao.persist(product);
 	}
 	
+	@Test
 	public void testPersist() {
 		Product product = new Product();
 		product.setName("A");
@@ -62,7 +69,7 @@ public class ProductDaoTestCase {
 		product.setStock(2);
 		product.setUnitPrice(2.2F);
 		productDao.persist(product);
-		Product productoFromDB = productDao.findById(Product.class, 100L);
+		Product productoFromDB = productDao.findById(Product.class, product.getId());
 		Assert.assertNotNull(productoFromDB);
 		Assert.assertEquals(product, productoFromDB);
 	}

@@ -9,10 +9,12 @@ import java.util.List;
 
 import junit.framework.Assert;
 
+import org.hibernate.LazyInitializationException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import es.gerardribas.persistence.dao.BillDao;
@@ -29,8 +31,8 @@ import es.gerardribas.persistence.domain.Product;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="/spring-config.xml")
-public class BillDaoTestCase {
-	
+public class BillDaoTestCase extends AbstractTransactionalJUnit4SpringContextTests {
+		
 	@Autowired
 	private BillDao billDao;
 	
@@ -49,6 +51,22 @@ public class BillDaoTestCase {
 	public void testListAllBills() {
 		List<Bill> bills = billDao.findAll(Bill.class);
 		Assert.assertNotNull(bills);
+		Assert.assertEquals(100, bills.size());
+	}
+	
+	@Test
+	public void testListAllBillsWithChilds() {
+		List<Bill> bills = billDao.findAll(Bill.class);
+		Assert.assertNotNull(bills);
+		
+		try {
+			for(Bill bill : bills){
+				bill.getCustomer().getName();
+				bill.getDetail().size();
+			}	
+		} catch (LazyInitializationException e) {
+			Assert.fail(e.getMessage());
+		}
 		Assert.assertEquals(100, bills.size());
 	}
 	
