@@ -3,6 +3,8 @@
  */
 package es.gerardribas.persistence.dao;
 
+import javax.persistence.EntityManager;
+
 import es.gerardribas.persistence.domain.Bill;
 
 /**
@@ -10,5 +12,7 @@ import es.gerardribas.persistence.domain.Bill;
  *
  */
 public interface BillDao extends AbstractDao<Bill, Long>{
+	
+	EntityManager getEntityManager();
 
 }

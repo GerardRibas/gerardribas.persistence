@@ -3,6 +3,8 @@
  */
 package es.gerardribas.persistence.dao.impl;
 
+import javax.persistence.EntityManager;
+
 import org.springframework.stereotype.Repository;
 
 import es.gerardribas.persistence.dao.BillDao;
@@ -17,5 +19,11 @@ import es.gerardribas.persistence.domain.Customer;
 public class BillDaoImpl extends AbstractJpaDaoImpl<Bill, Long> implements BillDao {
 
 	private static final long serialVersionUID = 1L;
+	
+	@Override
+	public EntityManager getEntityManager() {
+		// TODO Auto-generated method stub
+		return super.getEntityManager();
+	}
 
 }

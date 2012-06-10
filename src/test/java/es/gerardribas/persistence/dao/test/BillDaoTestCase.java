@@ -3,6 +3,8 @@
  */
 package es.gerardribas.persistence.dao.test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -95,6 +97,47 @@ public class BillDaoTestCase extends AbstractTransactionalJUnit4SpringContextTes
 		bill.setDetail(list);
 		
 		billDao.persist(bill);
+	}
+	
+	@Test
+	public void testUpdate() {
+		Float price = 15F;
+		Date newDate = null;
+	
+		try {
+			newDate = new SimpleDateFormat("yyyy-MM-dd").parse("2012-07-07");
+		} catch (ParseException e) {
+			Assert.fail(e.getMessage());
+		}
+		
+		Bill bill = billDao.findById(Bill.class, 2L);
+		Assert.assertNotNull(bill);
+		
+		bill.setPrice(price);
+		bill.setDate(newDate);
+		billDao.update(bill);
+		
+		billDao.getEntityManager().flush();
+		billDao.getEntityManager().clear();
+		
+		bill = billDao.findById(Bill.class, 2L);
+		Assert.assertNotNull(bill);
+		Assert.assertEquals(price, bill.getPrice());
+		Assert.assertEquals(newDate, bill.getDate());
+	}
+	
+	@Test
+	public void remove(){
+		Bill bill = billDao.findById(Bill.class, 2L);
+		Assert.assertNotNull(bill);
+		billDao.remove(bill);
+		
+		billDao.getEntityManager().flush();
+		billDao.getEntityManager().clear();
+		
+		bill = billDao.findById(Bill.class, 2L);
+		Assert.assertNull(bill);
+		
 	}
 
 }

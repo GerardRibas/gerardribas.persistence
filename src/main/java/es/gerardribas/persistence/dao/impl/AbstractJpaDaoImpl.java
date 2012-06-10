@@ -46,11 +46,6 @@ public abstract class AbstractJpaDaoImpl<T extends Serializable, E> implements
 		entityManager.remove(entity);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED)
-	public void merge(T entity) {
-		entityManager.merge(entity);
-	}
-
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<T> findAll(Class<T> claz) {
 		return findAll(claz, null, null);
