@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>es.gerardribas</groupId>
 	<artifactId>persistence</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<dependencies>
 
 		<dependency>
@@ -122,7 +122,7 @@
 		<connection>scm:git:git@github.com:GerardRibas/gerardribas.persistence.git</connection>
 		<developerConnection>scm:git:git@github.com:GerardRibas/gerardribas.persistence.git</developerConnection>
 		<url>http://github.com/GerardRibas/gerardribas.persistence</url>
-	  <tag>persistence-0.0.1</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 </project>
