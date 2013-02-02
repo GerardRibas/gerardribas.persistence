@@ -22,7 +22,6 @@ public class BillDaoImpl extends AbstractJpaDaoImpl<Bill, Long> implements BillD
 	
 	@Override
 	public EntityManager getEntityManager() {
-		// TODO Auto-generated method stub
 		return super.getEntityManager();
 	}
 
