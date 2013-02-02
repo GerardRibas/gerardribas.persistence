@@ -1,9 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>es.gerardribas</groupId>
 	<artifactId>persistence</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<dependencies>
 
 		<dependency>
@@ -123,6 +122,7 @@
 		<connection>scm:git:git@github.com:GerardRibas/gerardribas.persistence.git</connection>
 		<developerConnection>scm:git:git@github.com:GerardRibas/gerardribas.persistence.git</developerConnection>
 		<url>http://github.com/GerardRibas/gerardribas.persistence</url>
-	</scm>
+	  <tag>persistence-0.0.1</tag>
+  </scm>
 
 </project>
