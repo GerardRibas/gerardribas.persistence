@@ -25,6 +25,22 @@ You will see only 3 important files in this package:
 This run's? Let's try it!
 =========================
 
+You can use this library with maven, you have to add the repository in your pom.xml like this:
+
+	<repository>
+		<id>cloudbees-public-release-repository</id>
+		<name>Gerard Ribas Releases</name>
+		<url>http://repository-gribas.forge.cloudbees.com/release/</url>
+		<layout>default</layout>
+	</repository>
+	
+And then add the dependency in your pom.xml:
+	<dependency>
+		<groupId>es.gerardribas</groupId>
+		<artifactId>reporting</artifactId>
+		<version>1.0.0-RELEASE</version>
+	</dependency>
+
 Please check the packages of test. You will see a sample of one dao (CustomerDao and CustomerDaoImpl) and one entity Customer. 
 
 For test that it runs, you can execute CustomerDaoTestCase. This test have an embedded database (HSQLDB) for testing all methods of AbstractJPADao. 
