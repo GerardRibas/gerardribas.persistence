@@ -43,7 +43,8 @@ public abstract class AbstractJpaDaoImpl<T extends Serializable, E> implements
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void remove(T entity) {
-		entityManager.remove(entity);
+		T newEntity = entityManager.merge(entity);
+		entityManager.remove(newEntity);
 	}
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
