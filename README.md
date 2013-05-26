@@ -42,7 +42,7 @@ The project tests use an embedded database (HSQLDB).
 
 ##Who am I?
 
-My name is Gerard Ribas and I am an experienced Software Engineer. You can find more information about me in [![Resize icon][1]](ie.linkedin.com/in/gerardribas "Linkedin") or you can follow me in [![Resize icon][2]](https://twitter.com/gerard_ribas "Twitter")
+My name is Gerard Ribas and I am an experienced Software Engineer. You can find more information about me in [![Resize icon][1]](http://ie.linkedin.com/in/gerardribas "Linkedin") or you can follow me in [![Resize icon][2]](https://twitter.com/gerard_ribas "Twitter")
 
 Thank´s for watching!
 
