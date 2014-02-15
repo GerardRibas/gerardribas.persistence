@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>es.gerardribas</groupId>
     <artifactId>persistence</artifactId>
-    <version>1.0.3.RELEASE</version>
+    <version>1.0.3.SNAPSHOT</version>
     <dependencies>
 
         <dependency>
