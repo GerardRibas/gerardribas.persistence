@@ -137,13 +137,13 @@
     <distributionManagement>
         <!-- Project available for all users in my public repository. Thanks to cloudbees. -->
         <repository>
-            <id>cloudbees-public-release-repository</id>
+            <id>cloudbees-private-release-repository</id>
             <name>Gerard Ribas Releases</name>
             <url>dav:https://repository-gribas.forge.cloudbees.com/release/</url>
             <layout>default</layout>
         </repository>
         <snapshotRepository>
-            <id>cloudbees-public-snapshot-repository</id>
+            <id>cloudbees.private.snapshot.repository</id>
             <name>Gerard Ribas Snapshots</name>
             <url>dav:https://repository-gribas.forge.cloudbees.com/snapshot/</url>
             <layout>default</layout>
